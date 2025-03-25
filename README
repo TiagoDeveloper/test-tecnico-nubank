@@ -1,0 +1,19 @@
+Projeto feito com java 21 e maven 3.9.0 para dependencias do junit e jackson.
+Foi usada a lib do junit para os testes unitários e a lib do jackson para serialização e deserialização de dados.
+
+Para gerar o jar, basta executar o comando "mvn clean install".
+Este comando irá também executar todos os testes unitários.
+
+Após a execução do comando do maven é necessário a execução do comando java "java -jar target/app.jar",
+assim inciando a espera pela entrada do dado.
+É possível também, em um terminal linux, executar o comando "java -jar target/app.jar < entrada.txt",
+onde "entrada.txt" seria uma arquivo contendo os dados de entrada.
+
+
+Estou deixando a opção de rodar pelo docker tbm, assim não tem a necessidade de instalar o maven na máquina:
+primeiro passo excutar o seguinte comando na raiz do projeto:
+- docker build -t capital-gains:1.0 .
+segundo passo, executar o container(o container não ficará em execução):
+- docker run --name capital-gains capital-gains:1.0
+Terceiro passo, copiar o jar do container:
+- docker cp capital-gains:/app/app.jar ./app-from-container.jar
